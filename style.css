@@ -1,0 +1,121 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
+
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  border-radius: 2px;
+	box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+	overflow: hidden;
+  background: #3FAF82;
+  color: #333;
+	font-family: 'Open Sans', Helvetica, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.menu{
+	display: flex;
+	width: 100px; 
+	height: 70px;
+	flex-direction: column;
+	justify-content: space-between;
+}.barre{
+	background: white;
+	height: 10px;
+	border-radius: 3px;
+	box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.3)
+}#b1{
+	transform-origin: center;
+}#b3{
+	transform-origin: center; 
+}
+
+#checkbox:checked + .menu #b1{
+	animation: crox1 1s; 
+	animation-fill-mode : forwards; 
+}
+@keyframes crox1{
+	50%{
+		transform: translateY(30px);
+	}
+	100%{
+		transform: translateY(30px) rotate(45deg);
+	}
+}
+
+#checkbox:checked + .menu #b2{
+	animation: crox2 1s;
+	animation-fill-mode : forwards; 
+}
+@keyframes crox2{
+	40%{
+		scale: 0;
+	}100%{
+		scale: 0;
+	}
+}
+
+#checkbox:checked + .menu #b3{
+	animation: crox3 1s;
+	animation-fill-mode : forwards; 
+}
+
+@keyframes crox3{
+	50%{
+		transform: translateY(-30px); 
+	}100%{
+		transform: translateY(-30px) rotate(135deg); 
+	}
+}
+
+#checkbox:not(:checked ) ~ .menu #b1{
+	animation : reverse-crox1 1s ;
+}
+#checkbox:not(:checked )+ .menu #b2{
+	animation : reverse-crox2 1s
+}
+#checkbox:not(:checked) + .menu #b3{
+	animation : reverse-crox3 1s;
+}
+
+@keyframes reverse-crox1{
+	0%{
+		transform:translateY(30px)
+		rotate(45deg) ;
+	}
+	50%{
+		transform: translateY(30px);
+	}
+}
+
+@keyframes reverse-crox2{
+	0%{
+		scale: 0;
+	}
+	60%{
+		scale: 0;
+	}100%{
+		scale: 1;
+	}
+}
+
+@keyframes reverse-crox3{
+	0%{
+		transform: translateY(-30px)
+		rotate(135deg) ;
+	}
+	50%{
+		transform: translateY(-30px);
+	}
+}
